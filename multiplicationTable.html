@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+</head>
+<style>
+    #container{
+        width: 80%;
+        margin: 30px auto;
+    }
+    input{
+        width: 200px;
+        height: 30px;
+        margin-left: 30px;
+        padding: 5px;
+        border-radius: 10px;
+    }
+    button{
+        padding: 10px;
+        border-radius: 10px;
+    }
+</style>
+<body>
+    <div id="container">
+        <input type="number" placeholder="value 1" id="value1">
+        <input type="number" placeholder="value 2" id="value2">
+        <button onclick="compute()">compute</button>
+    </div>
+    
+</body>
+</html>
+<script>
+    // Div to display the result
+    const resultDiv = document.createElement('div');
+    document.body.appendChild(resultDiv);
+    resultDiv.style.marginLeft = '50px';
+
+    function compute (){
+        // clear the div first
+        resultDiv.innerHTML = '';
+
+        let value1 = document.querySelector("#value1").value;
+        let value2 = document.querySelector("#value2").value;
+
+        if ((value1 == value2) || (value1 > value2) || (value2 > 99)){ 
+            resultDiv.innerHTML = '(value 1) must be less than (value 2) and (value 2) less than 100';
+           resultDiv.style.color = 'red';
+           return;
+        }
+            let result = ''
+            for (i = value1; i <= value2; i++){
+                    for (j = 1; j <= 12; j++){
+                        result += `${i} * ${j} = ${i * j}<br>`;
+                }
+                result += '<br>'
+            }
+                resultDiv.innerHTML = result
+    }
+
+</script>

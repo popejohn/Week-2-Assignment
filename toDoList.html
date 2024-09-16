@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+</head>
+<style>
+    #container{
+        width: 80%;
+        margin: 30px auto;
+    }
+    input{
+        width: 200px;
+        height: 30px;
+        margin-right: 20px;
+        padding: 5px;
+        border-radius: 10px;
+    }
+    button{
+        padding: 10px;
+        border-radius: 10px;
+    }
+</style>
+<body style="padding: 20px;">
+    <h2>To do List</h2>
+    <input type="text" id="item"><button onclick="addItem()">Add to List</button>
+    <div id="display" style="margin: 20px 10px;"></div>
+    <button onclick="edit()">Edit list</button>
+    <button onclick="deleteItem()">Delete item</button>
+</body>
+</html>
+<script>
+let itemId = document.getElementById('item');
+let display = document.getElementById('display');
+
+function addItem (){
+    let item = itemId.value;
+    display.textContent = item;
+    alert(`'${item}' has been added successfully`);
+    itemId.value = '';
+}
+
+function edit() {
+    itemId.value = display.textContent; 
+}
+
+function deleteItem(){
+    display.textContent = ''
+    itemId.value =  ''
+}
+</script>
